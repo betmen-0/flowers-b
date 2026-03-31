@@ -40,9 +40,42 @@
             </header>
             <main>
                 <div class="form-section">
-                    
+                    <div class="flower-section">
+                        <h2>Main Flowers</h2>
+                        <div class="transparent-container">
+                            <div id="mainFlowers" class="flower-gallery">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flower-section">
+                        <h2>Support Flowers</h2>
+                        <div class="transparent-container">
+                            <div id="supportFlowers" class="flower-gallery"></div>
+                        </div>
+                    </div>
+
+                    <div class="message-section ooction" >
+                        <div class="message-box-container">
+                            <label for="userMessage">Your Message:</label>
+                            <div class="message-input-wrapper">
+                                <textarea id="userMessage" placeholder="Write a Special For Your Special Ones"></textarea>
+                                <div class="message-decoration">💝</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="generateBtn" class="class-btn">
+                        Create Button
+                    </button>
                 </div>
+
+                <div id="bouquetPreview" class="preview"></div>
+                <button id="downloadBtn" class="download-btn" style="display: none;">
+                    Download Bouquet
+                </button>
             </main>
         </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="script.js"></script>
     </body>
 </html>

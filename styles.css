@@ -206,6 +206,42 @@ body::after {
 .bouquet-images img:nth-child(3) {animation-delay: 0.6s;}
 .bouquet-images img:nth-child(4) {animation-delay: 0.7s;}
 
+.bouquet-images img:hover {
+    transform: none;
+    filter: brightness(1) contrast(1);
+    box-shadow: none;
+}
 
+.start-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    color: #5b4235;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin-top: 40px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    animation: fadeinup 1.2s ease-out 0.6s both;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
+.start-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: rgba(255,255,255,0.5);
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+}
+
+#builderSection {
+    width: 100%;
+}
 
