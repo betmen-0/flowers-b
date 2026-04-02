@@ -116,3 +116,90 @@ function loadFlowers() {
     });
 }
 
+function selectFlower(element,flowerName, type) {
+    const container = type === "main"
+    ? document.getElementById("mainFlowers")
+    : document.getElementById("supportFlowers");
+
+    container.querySelectorAll(".flower-option").forEach(opt => 
+        opt.classList.remove("selected")
+    );
+    element.classList.add("selected");
+
+    if (type === "main") selectedMain = flowerName;
+    else selectedSupport = flowerName;
+}
+
+document.getElementById("generateBtn").addEventListener("click", () => {
+    const message = document.getElementById("userMessage").ariaValueMax.trim();
+    const preview = document.getElementById("bouquetPreview");
+
+    if (!selectedMain || !selectedSupport) {
+        preview.innerHTML = `
+        <div class="bouquet-card">
+        <p style="color: #e74c3c;font-weight: 600;">Please Select both main & support flowers 🌸</p>
+        </div>`;
+        return;
+    }
+
+
+//TODO : Maybe if i add more bouquet combination later
+    const fileName = `${selectedMain.toLowerCase()} and ${selectedSupport.toLowerCase()}.png`;
+    const imagePath = `images/bouquet_images/${fileName}`;
+
+preview.innerHTML = `
+<div class="bouquet-card" id="bouquetCard">
+  <img src="${imagePath}" alt="Bouquet">
+  <h3>${selectedMain} + ${selectedSupport}</h3>
+  ${message ? `<div class="message">"${message}"</div>` : ""}
+</div>`;
+
+document.getElementById("downloadBtn").style.display = "block";
+});
+
+document.getElementById("downloadBtn").addEventListener("click", () => {
+    const bouquetCard = document.getElementById(".bouquet-card");
+    if (!bouquetCard) return;
+
+    const downloadContainer = document.createElement("div");
+    downloadContainer.style.cssText = `
+    background: #fff;
+    padding:40px;
+    display:inline-block;
+    font-family: 'Poppins', sans-serif;
+    `;
+
+
+    const clonedCard = bouquetCard.cloneNode(true);
+
+    // Clean up for the styling download
+
+    function cleanElement(el) {
+        if(el.tagName !== 'IMG'){
+            el.style.background = "#fff"
+        }
+        el.style.backdropFilter = "none";
+        el.style.filter = "none";
+        el.style.opacity = "1";
+        el.style.boxShadow = "none";
+        el.style.border = "none";
+        el.style.textShadow = "none";
+
+        if (el.children.length > 0) {
+            Array.from(el.children).forEach(child => cleanElement(child));
+        }
+    }
+
+    cleanElement(clonedCard);
+    downloadContainer.appendChild(clonedCard);
+
+    document.body.appendChild(downloadContainer);
+    downloadContainer.style.position = "absolute";
+    downloadContainer.style.left = "-9999px";
+
+    const scaleFactor = window.devicePixelRatio * 3;
+
+}); 
+
+
+
