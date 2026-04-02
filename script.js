@@ -53,4 +53,66 @@ function initMusic() {
 }
 }
 
+function toggleMusic() {
+    if (!bgMusic) return;
+
+    if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+            isMusicPlaying = true;
+            localStorage.setItem('musicPlaying', 'true');
+            updateMusicButton();
+        }).catch(err => console.log('Play Failed:', err));
+    } else {
+        bgMusic.pause();
+        isMusicPlaying = false;
+        localStorage.setItem('musicPlaying', 'false');
+        updateMusicButton();
+    }
+}
+
+function updateMusicButton() {
+    const button = document.getElementById('musicToggle');
+    if (button) {
+        if (isMusicPlaying) {
+            button.textContent = 'Music OFF';
+            button.classList.add('playing');
+        }
+    }
+}
+
+
+let selectedMain = "";
+let selectedSupport = "";
+
+function showBuilder() {
+    document.querySelector('.landing').style.display= 'none';
+    document.getElementById('builderSection').style.display = 'block';
+    loadFlowers();
+}
+
+function loadFlowers() {
+    const mainContainer = document.getElementById("mainFlowers");
+    const supportContainer = document.getElementById("supportFlowers");
+
+    mainFlowers.forEach(flower => {
+        const div = document.createElement("div");
+        div.classList.add("flower-option");
+        div.innerHTML = `<img src="${flower.image}" alt="${flower.name}"><p>
+        ${flower.name}
+        </p>`;
+        div.addEventListener("click", () => selectFlower(div,flower.name, "main"));
+        mainContainer.appendChild(div);
+    });
+
+    supportFlowers.forEach(flower => {
+        const div = document.createElement("div");
+        div.classList.add("flower-option");
+        div.innerHTML = `<img src = "${flower.image}" alt= "${flower.name}"<p>
+        {flower.name}
+        </p>`;
+
+        div.addEventListener("click",() => selectFlower(div, flower.name, "support"));
+        supportContainer.appendChild(div);
+    });
+}
 
