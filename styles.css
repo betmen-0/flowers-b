@@ -330,3 +330,157 @@ header p {
     z-index: 5;
 }
 
+.flower-option {
+    position: relative;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    width:200px;
+    height: 250px;
+    overflow:visible;
+    background: rgba(255, 255, 255, 0.4);
+    background-filter: blur(10px);
+    display: flex;
+    box-shadow: 0 8px 25px rgba(0,0,0,0,08), inset 0 1px 0 rgba(255,255,255,0.6);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadein 0.6s ease-out both;
+}
+
+.flower-option:hover {
+    transform: translateY(-12px) scale(1.05) rotate(2deg);
+    border-color: rgba(240,182,164,0.8);
+    box-shadow: 
+    0 25px 50px rgba(240,182,164,0.3),
+    0 10px 30px rgba(255, 255, 255, 0.7),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.flower-option img {
+    width: 147px !important;
+    height: 155px !important;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    filter: brightness(1.05) contrast(1.05);
+    margin-bottom: 10px;
+}
+
+.flower-option:nth-child(1) {animation-delay: 0.1s;}
+.flower-option:nth-child(2) {animation-delay: 0.2s;}
+.flower-option:nth-child(3) {animation-delay: 0.3s;}
+.flower-option:nth-child(4) {animation-delay: 0.4s;}
+.flower-option:nth-child(5) {animation-delay: 0.5s;}
+.flower-option:nth-child(6) {animation-delay: 0.6s;}
+
+.flower-option:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.15) contrast(1.1) saturate(1.15);
+}
+
+.flower-option p {
+    position: relative;
+    margin: 0;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #5a3e36;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 12px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    width: 100%;
+    text-align: center;
+}
+
+.flower-option.selected {
+    border-color: rgba(231, 183, 160, 0.9);
+    transform: translateY(-8px) scale(1.06);
+    box-shadow: 
+    0 30px 60px rgba(231,183,160,0.35),
+    0 15px 35px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.8)
+    ;
+    background: rgba(255,255,255,0.6);
+    animation: selectedPulse 2s ease-in-out infinite;
+}
+
+@keyframes selectedPulse {
+    0%,100% {
+        box-shadow: 
+        0 30px 60px rgba(231,183,160,0.35),
+        0 15px 35px rgba(0,0,0,0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8)
+        ;
+    }
+    50% {
+        box-shadow: 
+        0 30px 60px rgba(231,183,160, 0.4),
+        0 15px 35px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.9)
+        ;
+    }
+}
+
+.flower-option.selected::after {
+    content: '✔';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width:32px;
+    height: 32px;
+    background: linear-gradient(135deg, #e7b7a0 0%, #d4a574 100%);
+    color: white;
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    animation: checkmark 0.4s ease;
+    box-shadow: 0 4px 15px rgba(231,183,160,0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255,255,255,0.8);
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0) rotate(-180deg); 
+        opacity:0;
+    }
+    50% {
+        transform:scale(1.3) rotate(-90deg);
+        opacity:1;
+    }
+    100% {
+        transform:scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.message-section{
+    margin: 70px 0;
+    animation: fadeinup 1s ease-out 0.6s both;
+}
+
+.message-box-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.message-box-container label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: #7a4e3a;
+    margin-bottom: 25px;
+}
+
