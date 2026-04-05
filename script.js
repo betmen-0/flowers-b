@@ -1,16 +1,16 @@
 const mainFlowers = [
     {name:"Roses", image:"images/Roses.png"},
     {name: "Lilies", image:"images/lilies.png"},
-    {name: "Poppies", image:"images/poppies.png"},
+    {name: "Poppies", image:"images/Poppies.png"},
     {name: "Tulips", image:"images/tulips.png"},
-    {name: "Sunflowers", image:"images/sunflowers.png"}
+    {name: "Sunflowers", image:"images/Sunflowers.png"}
 ];
 
 const supportFlowers = [
-    {name:"Clovers", image:"images/clovers.png"},
-    {name:"Daisies", image:"images/daisies.png"},
-    {name:"Primroses", image:"images/primroses.png"},
-    {name:"violets", image:"images/violets.png"}
+    {name:"Clovers", image:"images/Clovers.png"},
+    {name:"Daisies", image:"images/Daisies.png"},
+    {name:"Primroses", image:"images/Primroses.png"},
+    {name:"violets", image:"images/Violets.png"}
 ];
 
 
